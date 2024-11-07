@@ -28,8 +28,9 @@ class MovieController extends Controller
         // get featured movies
         $featuredMovies = Movie::where('featured', true)->paginate(8);
 
-        // Return the data to the view
-        return view('layouts.app', compact('showNowMovies', 'popularMovies', 'featuredMovies'));
+
+        return view('dashboard', compact('showNowMovies', 'popularMovies'));
+
     }
 
     /**
