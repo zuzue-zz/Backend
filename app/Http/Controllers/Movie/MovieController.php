@@ -25,7 +25,7 @@ class MovieController extends Controller
         $popularMovies = Movie::orderBy('rating', 'desc')->paginate(12);
 
         // Return the data to the view
-        return view('layouts.content', compact('showNowMovies', 'popularMovies'));
+        return view('dashboard', compact('showNowMovies', 'popularMovies'));
     }
 
     /**
