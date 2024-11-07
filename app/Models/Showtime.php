@@ -18,10 +18,6 @@ class Showtime extends Model
         return $this->belongsTo(Movie::class);
     }
 
-    public function screen()
-    {
-        return $this->belongsTo(Screen::class);
-    }
 
     public function tickets()
     {
