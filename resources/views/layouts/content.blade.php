@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 @section('content')
     <!-- Start Carousel Area -->
     <div class="container-fluid">
