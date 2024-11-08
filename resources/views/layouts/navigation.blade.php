@@ -17,6 +17,9 @@
         <li><a href="#cta" class="hover:underline">About</a></li>
         <li><a href="#cta" class="hover:underline">Contact</a></li>
         <li>
+            <a href="#cta" class="hover:underline">Login</a>
+        </li>
+        <li>
             <form action="{{route('logout')}}" method="POST">
                 @csrf
                 <button type="submit" class="hover:underline">Logout</button>
