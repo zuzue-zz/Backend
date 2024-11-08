@@ -8,6 +8,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/movies', function () {
+    return view('admin.movies');
+});
+
+Route::get('/tickets', function () {
+    return view('admin.tickets');
+});
+
+
 Route::get('/dashboard', [MovieController::class,'index'])->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
