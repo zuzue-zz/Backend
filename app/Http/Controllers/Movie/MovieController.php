@@ -29,7 +29,7 @@ class MovieController extends Controller
         $featuredMovies = Movie::where('featured', true)->paginate(8);
 
 
-        return view('dashboard', compact('showNowMovies', 'popularMovies'));
+        return view('admin.views', compact('showNowMovies', 'popularMovies'));
 
     }
 
