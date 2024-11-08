@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <!-- Start Hero Section with Carousel -->
+<!-- Start Hero Section with Carousel -->
   <section id="home" class="relative bg-gray-900 text-white py-40 text-center">
     <div class="relative overflow-hidden max-w-full mx-auto rounded-lg">
       <!-- Carousel Container -->
@@ -51,9 +51,9 @@
     <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
         <!-- Movie Card 1 -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 1" class="w-full h-48 object-cover">
+            <img src="./assets/moviephotos/Terrifier.jpg" alt="Terrifier3" class="w-full h-48 object-cover">
             <div class="p-4">
-                <h3 class="text-xl font-semibold mb-2">Movie Title 1</h3>
+                <h3 class="text-xl font-semibold mb-2">Terrifier3</h3>
                 <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
                 <div class="flex justify-center">
                     <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
@@ -65,7 +65,7 @@
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 2" class="w-full h-48 object-cover">
             <div class="p-4">
-                <h3 class="text-xl font-semibold mb-2">Movie Title 2</h3>
+                <h3 class="text-xl font-semibold mb-2">Wicked</h3>
                 <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
                 <div class="flex justify-center">
                     <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
