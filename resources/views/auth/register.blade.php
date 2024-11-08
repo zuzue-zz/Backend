@@ -1,52 +1,97 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+@extends('layouts.guest')
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+@section('content')
+
+    <div class="bg-gray-50 text-gray-500 shadow"  style="max-width: 1000px">
+        <h1 class="text-center font-bold text-violet-400 text-5xl px-4 pt-3">Register Form</h1>
+        <!--        <div class="">-->
+        <!--            <h1 class="text-center font-bold text-dark text-5xl">Register Form</h1>-->
+        <!--        </div>-->
+        <div class="rounded-xl flex">
+            <div class="w-1/2 hidden md:flex items-center justify-center ps-3">
+                <img src="{{ asset('./assets/carouselPictures/mt3.jpg') }}" class="object-contain" />
+            </div>
+
+
+            <div class="w-full md:w-1/2 px-5 py-10">
+
+                <div class="text-center mb-10">
+                    <h1 class="Register With Us"></h1>
+                </div>
+
+
+                <!-- <div class="w-1/2 hidden md-block">
+
+
+                </div> -->
+                <form action="{{ route('register') }}" method="POST">
+
+                    @csrf
+                    <div class="w-full px-3 mb-2">
+                        <label for="name" class="text-xs font-semibold px-1">Full Name</label>
+                        <div class="flex">
+                            <div class="w-10 flex justify-center items-center z-10">
+                                <i class="fas fa-user text-gray-300"></i>
+                            </div>
+                            <input type="text" name="name" class="w-full border-2 border-gray-200 outline-none focus:border-indigo-500 pl-12 py-2 -ml-10" placeholder="Full Name" />
+                        </div>
+                    </div>
+
+                    <div class="w-full px-3 mb-3">
+                        <label for="email" class="text-xs font-semibold px-1">Email</label>
+                        <div class="flex">
+                            <div class="w-10 flex justify-center items-center z-10">
+                                <i class="fas fa-envelope text-gray-300"></i>
+                            </div>
+                            <input type="text" name="email" class="w-full border-2 border-gray-200 outline-none focus:border-indigo-500 pl-12 py-2 -ml-10" placeholder="Email" />
+                        </div>
+                    </div>
+
+                    <div class="w-full px-3 mb-2">
+                        <label for="phone" class="text-xs font-semibold px-1">Phone</label>
+                        <div class="flex">
+                            <div class="w-10 flex justify-center items-center z-10">
+                                <i class="fas fa-envelope text-gray-300"></i>
+                            </div>
+                            <input type="text" name="phone" class="w-full border-2 border-gray-200 outline-none focus:border-indigo-500 pl-12 py-2 -ml-10" placeholder="Phone" />
+                        </div>
+                    </div>
+
+                    <div class="w-full px-3 mb-2">
+                        <label for="password" class="text-xs font-semibold px-1">Password</label>
+                        <div class="flex">
+                            <div class="w-10 flex justify-center items-center z-10">
+                                <i class="fas fa-key text-gray-300"></i>
+                            </div>
+                            <input type="password" name="password" class="w-full border-2 border-gray-200 outline-none focus:border-indigo-500 pl-12 py-2 -ml-10" placeholder="**********" />
+                        </div>
+                    </div>
+
+                    <div class="w-full px-3 mb-2">
+                        <label for="password_confirmation" class="text-xs font-semibold px-1">Confirm Password</label>
+                        <div class="flex">
+                            <div class="w-10 flex justify-center items-center z-10">
+                                <i class="fas fa-key text-gray-300"></i>
+                            </div>
+                            <input type="password" name="password_confirmation" class="w-full border-2 border-gray-200 outline-none focus:border-indigo-500 pl-12 py-2 -ml-10" placeholder="**********" />
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <button type="submit" class="w-full bg-indigo-500 text-white font-semibold uppercase hover:bg-indigo-700 py-3">Register Now</button>
+                    </div>
+                </form>
+
+                <div class="text-center mt-6">
+                    <p>
+                        Already Register ? Login
+                        <a href="{{ route('login') }}" class="text-indigo-600">Here !!</a>
+                    </p>
+                </div>
+
+            </div>
         </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </div>
+@endsection
