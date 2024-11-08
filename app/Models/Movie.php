@@ -24,7 +24,11 @@ class Movie extends Model
         'description',
         'duration',
         'rating',
+        'review',
+        'image_path',
+        'trailer_link',
         'release_date',
+        'featured',
         'category_id'
     ];
 

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
     <!-- Start Hero Section with Carousel -->
   <section id="home" class="relative bg-gray-900 text-white py-40 text-center">

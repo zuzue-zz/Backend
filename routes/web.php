@@ -8,7 +8,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [MovieController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/movies', function () {
+    return view('admin.movies');
+});
+
+Route::get('/tickets', function () {
+    return view('admin.tickets');
+});
+
+
+Route::get('/dashboard', [MovieController::class,'index'])->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
