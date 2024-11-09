@@ -9,6 +9,7 @@ use App\Models\Showtime;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\File;
 
 class MovieController extends Controller
 {
@@ -17,9 +18,9 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $movies = Movie::all();
 
-        return view('admin.movie.index', compact('categories'));
+        return view('admin.movie.index', compact('movies'));
 
     }
 
@@ -37,30 +38,38 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required|max:1000',
-            'duration' => 'required',
-            'rating' => 'required',
-            'release_date' => 'required|date',
-            'featured' => 'required',
-            'category_id' => 'required',
-        ]);
+//        $request->validate([
+//            'title' => 'required',
+//            'description' => 'required|max:1000',
+//            'duration' => 'required',
+//            'rating' => 'required',
+//            'release_date' => 'required|date',
+////            'featured' => 'required',
+////            'category_id' => 'required',
+//        ]);
 
-        Movie::create([
+        $movie = Movie::create([
             'title' => $request->title,
             'description' => $request->description,
             'duration' => $request->duration,
             'rating' => $request->rating,
             'review' => $request->review,
-            'image_path' => $request->image_path,
             'trailer_link' => $request->trailer_link,
             'release_date' => $request->release_date,
-            'featured' => $request->featured,
+            'featured' => $request->featured==1?true:false,
             'category_id' => $request->category_id
         ]);
 
-        return back()->with('success', 'Movie added successfully');
+        if($request->hasFile('image_path')){
+            $file = $request->file('image_path');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('assets/moviephotos/'), $filename);
+
+            $movie->image_path = $filename;
+            $movie->save();
+        }
+
+        return to_route('movies.index')->with('success', 'Movie added successfully');
     }
 
     /**
@@ -78,10 +87,10 @@ class MovieController extends Controller
      */
     public function edit(string $id)
     {
-        $movie = findOrFail($id);
+        $movie = Movie::findOrFail($id);
         $categories = Category::all();
 
-        return view('movies.edit',compact('movie', 'categories'));
+        return view('admin.movie.edit',compact('movie', 'categories'));
     }
 
     /**
@@ -99,7 +108,7 @@ class MovieController extends Controller
             'category_id' => 'sometimes',
         ]);
 
-        $movie = findOrFail($id);
+        $movie = Movie::findOrFail($id);
 
         $movie->update([
             'title' => $request->title,
@@ -107,14 +116,31 @@ class MovieController extends Controller
             'duration' => $request->duration,
             'rating' => $request->rating,
             'review' => $request->review,
-            'image_path' => $request->image_path,
             'trailer_link' => $request->trailer_link,
             'release_date' => $request->release_date,
-            'featured' => $request->featured,
+            'featured' => $request->featured==1?true:false,
             'category_id' => $request->category_id
         ]);
 
-        return back()->with('success', 'Movie updated successfully');
+        if($request->hasFile('image_path')){
+
+            if($movie->image_path){
+                $file_path = $movie->image_path;
+                if(file_exists($file_path)){
+                    File::delete($file_path);
+                }
+
+            }
+
+            $file = $request->file('image_path');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('assets/moviephotos/'), $filename);
+
+            $movie->image_path = $filename;
+            $movie->save();
+        }
+
+        return to_route('movies.index')->with('success', 'Movie updated successfully');
     }
 
     /**
@@ -123,6 +149,13 @@ class MovieController extends Controller
     public function destroy(string $id)
     {
         $movie = Movie::findOrFail($id);
+        if($movie->image_path){
+            $file_path = $movie->image_path;
+            if(file_exists($file_path)){
+                File::delete($file_path);
+            }
+
+        }
         $movie->delete();
 
         return back()->with('success', 'Movie deleted successfully');
