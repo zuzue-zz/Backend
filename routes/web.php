@@ -9,7 +9,7 @@ Route::get('/', function () {
 });
 
 Route::get('/movies', function () {
-    return view('admin.movies');
+    return view('admin.movie.index');
 });
 
 Route::get('/tickets', function () {
