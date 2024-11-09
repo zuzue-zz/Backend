@@ -26,10 +26,6 @@
                 <td class="py-2 px-4">5</td>
                 <td class="py-2 px-4">Nov 1</td>
                 <td class="py-2 px-4">C1</td>
-{{--                <td class="py-2 px-4">--}}
-{{--                    <button class="text-blue-500 hover:underline"><i class="fa-solid fa-pen-to-square"></i></button>--}}
-{{--                    <button class="text-red-500 hover:underline"><i class="fa-solid fa-trash"></i></button>--}}
-{{--                </td>--}}
                 <td class="py-2 px-4 border-b">
                     <button class="text-blue-500 hover:text-blue-700 mr-3">
                         <i class="fas fa-edit"></i>
@@ -44,9 +40,9 @@
 
         <!-- Plus button -->
         <div class="fixed bottom-4 right-4">
-            <button class="bg-green-500 text-white rounded-[10px] px-4 flex items-center justify-center shadow-emerald-600 shadow-2xl">
+            <a href="{{ route('movies.create') }}" class="bg-green-500 text-white rounded-[10px] px-4 flex items-center justify-center shadow-emerald-600 shadow-2xl">
                 <span class="text-white text-7xl font-bold">+</span>
-            </button>
+            </a>
         </div>
     </section>
 

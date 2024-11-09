@@ -17,19 +17,9 @@ class MovieController extends Controller
      */
     public function index()
     {
-        // get movies that show today
-        $showNowMovies = Showtime::with('movie')
-                        ->where('show_date', Date::now()->format('Y-m-d'))
-                        ->get();
+        $categories = Category::all();
 
-        // get popular movies by rating
-        $popularMovies = Movie::orderBy('rating', 'desc')->paginate(8);
-
-        // get featured movies
-        $featuredMovies = Movie::where('featured', true)->paginate(8);
-
-
-        return view('admin.views', compact('showNowMovies', 'popularMovies'));
+        return view('admin.movie.index', compact('categories'));
 
     }
 
@@ -39,7 +29,7 @@ class MovieController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('movies.create', compact('categories'));
+        return view('admin.movie.create', compact('categories'));
     }
 
     /**
