@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Movie\MovieController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -8,14 +9,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/movies', function () {
-    return view('admin.movie.index');
-});
+
 
 Route::get('/tickets', function () {
     return view('admin.tickets');
 });
 
+Route::resource('movies', MovieController::class);
+Route::resource('categories', CategoryController::class);
+
+Route::get('/movie_details', function () {
+    return view('movie_detail');
+});
 
 Route::get('/dashboard', [MovieController::class,'index'])->middleware(['auth'])->name('dashboard');
 
