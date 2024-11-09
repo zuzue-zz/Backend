@@ -17,6 +17,10 @@ Route::get('/tickets', function () {
 });
 
 
+Route::get('/movie_details', function () {
+    return view('movie_detail');
+});
+
 Route::get('/dashboard', [MovieController::class,'index'])->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
