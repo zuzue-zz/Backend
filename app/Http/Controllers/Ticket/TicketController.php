@@ -57,6 +57,7 @@ class TicketController extends Controller
     public function show(string $id)
     {
         //
+
     }
 
     /**

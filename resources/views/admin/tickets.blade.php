@@ -59,6 +59,14 @@
                 </button>
             </div>
         </form>
+
+        <!-- Add Ticket -->
+        <div class="flex space-x-2">
+            <a href="{{ route('tickets.index') }}" class="w-1/2 bg-gray-300 text-center text-stone-800 py-2 rounded-lg hover:bg-gray-400">Cancel</a>
+            <button type="submit" class="w-1/2 bg-indigo-500 text-white py-2 rounded-lg hover:bg-indigo-600">
+                Add Tickets
+            </button>
+        </div>
     </section>
 
 @endsection

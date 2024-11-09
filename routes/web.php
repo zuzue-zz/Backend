@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Movie\MovieController;
+use App\Http\Controllers\Ticket\TicketController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,7 @@ Route::get('/tickets', function () {
 
 Route::resource('movies', MovieController::class);
 Route::resource('categories', CategoryController::class);
+Route::resource('tickets', TicketController::class);
 
 Route::get('/movie_details', function () {
     return view('movie_detail');
