@@ -4,7 +4,7 @@
     <!-- Categories Management View -->
 
         @if(session('success'))
-            <div class="bg-white p-4 mt-8 rounded-lg shadow-md mb-2">
+            <div class="bg-white text-center text-green-800 p-4 mt-8 rounded-lg shadow-md mb-2">
                 {{session('success')}}
             </div>
         @endif
@@ -15,16 +15,16 @@
         <table class="min-w-full bg-white rounded-lg shadow-md">
             <thead class="bg-gray-200">
             <tr class="text-left">
-                <th class="py-2 px-4">Category ID</th>
+                <th class="py-2 px-4">No.</th>
                 <th class="py-2 px-4">Name</th>
                 <th class="py-2 px-4">Actions</th>
             </tr>
             </thead>
             <tbody>
             <!-- Category Rows -->
-            @foreach($categories as $category)
+            @foreach($categories as $idx => $category)
                 <tr class="border-b text-left">
-                    <td class="py-2 px-4">{{ $category->id }}</td>
+                    <td class="py-2 px-4">{{ $idx+1 }}</td>
                     <td class="py-2 px-4">{{ $category->name }}</td>
                     <td class="py-2 px-4 flex">
                         <a href="{{ route('categories.edit',$category->id)}}" class="text-blue-500 hover:text-blue-700 mr-3">

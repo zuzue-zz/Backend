@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Category;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use function Laravel\Prompts\error;
 
@@ -75,9 +76,9 @@ class CategoryController extends Controller
 
         $category = Category::findOrFail($id);
 
-        $category->update([
-            'name' => $request->name
-        ]);
+        $category->name = $request->name;
+        $category->slug = Str::slug($request->name,'-');
+        $category->save();
 
         return to_route('categories.index')->with('success', 'Category updated successfully');
     }
@@ -91,5 +92,7 @@ class CategoryController extends Controller
         $category->delete();
 
         return redirect()->back()->with('success', 'Category deleted successfully');
+
+
     }
 }

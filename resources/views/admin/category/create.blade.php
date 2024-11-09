@@ -10,7 +10,12 @@
             @csrf
             <div>
                 <label class="block text-gray-700">Category Name</label>
-                <input type="text" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-lg" placeholder="Enter category name" />
+                <input type="text" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-lg @error('name') border-red-300 @enderror" placeholder="Enter category name" />
+                @error('name')
+                    <div class="text-red-900">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="flex space-x-2">
                 <a href="{{ route('categories.index') }}" class="w-1/2 bg-gray-300 text-center text-stone-800 py-2 rounded-lg hover:bg-gray-400">Cancel</a>
