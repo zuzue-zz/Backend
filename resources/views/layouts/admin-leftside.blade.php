@@ -9,6 +9,9 @@
         <a href="{{route('categories.index')}}" class="block py-2 px-4 text-gray-100 hover:bg-gray-700">Categories</a>
         <a href="#showtimes" class="block py-2 px-4 text-gray-100 hover:bg-gray-700">Showtimes</a>
         <a href="#tickets" class="block py-2 px-4 text-gray-100 hover:bg-gray-700">Tickets</a>
-        <a href="#logout" class="block py-2 px-4 text-gray-100 hover:bg-gray-700">Logout</a>
+        <a href="#logout" onclick="document.getElementById('logout').submit()" class="block py-2 px-4 text-gray-100 hover:bg-gray-700">Logout</a>
+        <form id="logout" action="{{ route('logout') }}" method="post">
+            @csrf
+        </form>
     </nav>
 </aside>
