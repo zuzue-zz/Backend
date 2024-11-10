@@ -14,7 +14,10 @@ class ShowtimeController extends Controller
      */
     public function index()
     {
-        //
+        $showtimes = Showtime::all();
+
+
+        return view('admin.showtime.index', compact('showtimes'));
     }
 
     /**
@@ -24,7 +27,7 @@ class ShowtimeController extends Controller
     {
         $movies = Movie::all();
 
-        return view('showtimes.create', compact('movies'));
+        return view('admin.showtime.create', compact('movies'));
     }
 
     /**
@@ -44,7 +47,7 @@ class ShowtimeController extends Controller
             'show_time' => $request->show_time
         ]);
 
-        return back()->with(['success','Showtime created successfully']);
+        return to_route('showtimes.index')->with(['success','Showtime created successfully']);
     }
 
     /**
@@ -53,7 +56,6 @@ class ShowtimeController extends Controller
     public function show(string $id)
     {
         $showtime = Showtime::findOrFail($id);
-
 
     }
 
@@ -65,7 +67,7 @@ class ShowtimeController extends Controller
         $showtime = Showtime::findOrFail($id);
         $movies = Movie::all();
 
-        return view('showtimes.edit',compact('showtime','movies'));
+        return view('admin.showtime.edit',compact('showtime','movies'));
 
     }
 
@@ -88,7 +90,7 @@ class ShowtimeController extends Controller
             'show_time' => $request->show_time
         ]);
 
-        return back()->with(['success','Showtime updated successfully']);
+        return to_route('showtimes.index')->with(['success','Showtime updated successfully']);
     }
 
     /**
@@ -99,6 +101,6 @@ class ShowtimeController extends Controller
         $showtime = Showtime::findOrFail($id);
         $showtime->delete();
 
-        return back()->with(['success','Showtime deleted successfully']);
+        return redirect()->back()->with(['success','Showtime deleted successfully']);
     }
 }

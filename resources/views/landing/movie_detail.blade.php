@@ -41,7 +41,7 @@
                         <a href="{{$movie->trailer_link}}" target="_blank" class="flex items-center justify-center w-40 bg-white text-gray-800 font-semibold py-2 px-4 rounded-full shadow-md hover:bg-red-700 hover:text-white transition">
                             <i class="fa-solid fa-play mr-2"></i>Trailer
                         </a>
-                        <a href="" class="flex items-center justify-center w-40 bg-white text-gray-800 font-semibold py-2 px-4 rounded-full shadow-md hover:bg-red-700 hover:text-white transition">
+                        <a href="{{ route('seat',$movie->id) }}" class="flex items-center justify-center w-40 bg-white text-gray-800 font-semibold py-2 px-4 rounded-full shadow-md hover:bg-red-700 hover:text-white transition">
                             <i class="mr-2"></i>Book Tickets
                         </a>
                     </div>

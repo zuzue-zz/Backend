@@ -24,7 +24,7 @@
         </style>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-900">
 
             @include('layouts.navigation')
 
@@ -37,5 +37,7 @@
 
         {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> --}}
         <script src="{{ asset('./assets/dists/js/app.js')}}"></script>
+        @yield('script')
+
     </body>
 </html>

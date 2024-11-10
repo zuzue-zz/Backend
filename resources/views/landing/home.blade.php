@@ -42,6 +42,8 @@
     </section>
     <!-- End Hero Section with Carousel  -->
 
+
+
     <!-- Start Now Showing Movies Section -->
     <section id="movies" class="bg-gray-100 py-16">
         <!-- <h2 class="text-3xl font-bold text-center mb-8">Now Showing Movies</h2> -->
@@ -52,209 +54,18 @@
             <!-- Movie Card 1 -->
             @foreach($showNowMovies as $showNowMovie)
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="{{ $showNowMovie->image_path }}" alt="{{ $showNowMovie->tilte }}" class="w-full h-48 object-cover">
+                    <img src="{{ asset('./assets/moviephotos/'.$showNowMovie->image_path) }}" alt="{{ $showNowMovie->tilte }}" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold mb-2">{{ $showNowMovie->title }}</h3>
                         <p class="text-gray-600 mb-4">Showtimes: @foreach($showNowMovie->showtimes as $showtime) {{ $showtime->show_time }} , @endforeach</p>
                         <div class="flex justify-center">
                             <a href="{{ $showNowMovie->trailer_link }}" target="_blank" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                            <!-- <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a> -->
+                            <a href="{{ route('movie.show',$showNowMovie->id) }}" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
                         </div>
                     </div>
                 </div>
             @endforeach
-            <!-- Movie Card 2 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 2" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Wicked</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-center">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        {{-- <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a> --}}
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 3 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 3" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 3</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-center">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <!-- <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a> -->
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 4 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 4" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 4</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-center">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <!-- <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a> -->
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 5 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 5" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 5</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-center">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <!-- <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a> -->
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 6 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 6" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 6</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-center">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <!-- <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a> -->
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 7 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 7" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 7</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-center">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <!-- <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a> -->
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 8 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 8" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 8</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-center">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <!-- <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Now Showing Movies Section -->
 
-
-    <!-- Start Now Showing Movies Section -->
-    <section id="movies" class="bg-gray-100 py-16">
-        <!-- <h2 class="text-3xl font-bold text-center mb-8">Now Showing Movies</h2> -->
-        <h2 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-yellow-500 to-pink-500 text-center tracking-wide mb-6 drop-shadow-lg">
-            Now Showing Movies
-        </h2>
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
-            <!-- Movie Card 1 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 1" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 1</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 2 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 2" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 2</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 3 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 3" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 3</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 4 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 4" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 4</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 5 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 5" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 5</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 6 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 6" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 6</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 7 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 7" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 7</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 8 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 8" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 8</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     <!-- End Now Showing Movies Section -->
@@ -281,90 +92,7 @@
                     </div>
                 </div>
             @endforeach
-            <!-- Movie Card 2 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 2" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 2</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 3 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 3" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 3</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 4 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 4" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 4</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 5 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 5" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 5</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 6 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 6" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 6</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 7 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 7" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 7</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 8 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 8" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 8</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </section>
     <!-- End Popular Movies Section  -->
@@ -376,101 +104,47 @@
         </h2>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
             <!-- Movie Card 1 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 1" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 1</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
+            @foreach($featuredMovies as $featuredMovie)
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="{{ asset('./assets/moviephotos/'.$featuredMovie->image_path) }}" alt="{{ $featuredMovie->tilte }}" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">{{ $featuredMovie->title }}</h3>
+                        <p class="text-gray-600 mb-4">Showtimes: @foreach($featuredMovie->showtimes as $showtime) {{ $showtime->show_time }} , @endforeach</p>
+                        <div class="flex justify-center">
+                            <a href="{{ $featuredMovie->trailer_link }}" target="_blank" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
+                            <a href="{{ route('movie.show',$featuredMovie->id) }}" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Movie Card 2 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 2" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 2</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
+            @endforeach
+
+        </div>
+    </section>
+    <!-- End Recommend Movies Section  -->
+
+    <!-- Start Recommend Movies Section -->
+    <section id="movies" class="bg-gray-100 py-16">
+        <h2 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-yellow-500 to-pink-500 text-center tracking-wide mb-6 drop-shadow-lg">
+            Animation Movies
+        </h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
+            <!-- Movie Card 1 -->
+            @if($animationMovies != null)
+                @foreach($animationMovies as $animationMovie)
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="{{ asset('./assets/moviephotos/'.$animationMovie->image_path) }}" alt="{{ $animationMovie->tilte }}" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">{{ $animationMovie->title }}</h3>
+                            <p class="text-gray-600 mb-4">Showtimes: @foreach($animationMovie->showtimes as $showtime) {{ $showtime->show_time }} , @endforeach</p>
+                            <div class="flex justify-center">
+                                <a href="{{ $animationMovie->trailer_link }}" target="_blank" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
+                                <a href="{{ route('movie.show',$animationMovie->id) }}" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <!-- Movie Card 3 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 3" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 3</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 4 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 4" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 4</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 5 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 5" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 5</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 6 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 6" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 6</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 7 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 7" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 7</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Movie Card 8 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://img.freepik.com/free-photo/view-3d-cinema-elements_23-2150720822.jpg?semt=ais_hybrid" alt="Movie 8" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">Movie Title 8</h3>
-                    <p class="text-gray-600 mb-4">Showtimes: 1:00 PM, 4:00 PM, 7:00 PM</p>
-                    <div class="flex justify-between">
-                        <a href="#trailer" class="bg-red-600 text-white hover:bg-red-700 py-2 px-4 rounded-md">Watch Trailer</a>
-                        <a href="#booking" class="bg-red-600 text-white hover:bg-red-700 py-2 px-6 rounded-md">Book Ticket</a>
-                    </div>
-                </div>
-            </div>
+                @endforeach
+            @endif
+
         </div>
     </section>
     <!-- End Recommend Movies Section  -->
