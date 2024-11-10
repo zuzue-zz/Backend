@@ -13,7 +13,6 @@
       </div>
       <ul class="flex space-x-6">
         <li><a href="{{ route('home') }}" class="hover:underline">Home</a></li>
-        <li><a href="#movies" class="hover:underline">Movies</a></li>
         <li><a href="{{ route('about') }}" class="hover:underline">About</a></li>
         <li><a href="{{ route('contact') }}" class="hover:underline">Contact</a></li>
           @auth()
@@ -32,6 +31,10 @@
 
               <li>
                   <a href="{{ route('login') }}" class="hover:underline">Login</a>
+
+              </li>
+
+              <li>
                   <a href="{{ route('register') }}" class="hover:underline">Register</a>
               </li>
           @endauth
