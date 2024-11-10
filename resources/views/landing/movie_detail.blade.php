@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="bg-gray-900 py-[50px] px-[25px] mt-[25px]">
+    <div class="bg-gray-900 py-[50px] px-[25px] mt-[100px]">
         <!-- Main Content -->
         <div class="flex-grow flex mt-4 space-x-4">
 

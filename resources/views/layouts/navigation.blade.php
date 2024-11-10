@@ -19,11 +19,11 @@
           <li class="">
               <span class="hover-trigger" >{{ Auth::user()->name }}</span>
               <div class="absolute myhover mt-2 w-44 bg-gray-800 text-white border border-gray-200 rounded-md shadow-lg opacity-0 invisible transition-all duration-200 ease-in-out hover-trigger:hover:opacity-100 hover-trigger:hover:visible">
-                  <a href="{{ route('profile.edit')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                  <a href="{{ route('profile.edit')}}" class="block w-full text-center px-4 py-2 text-sm text-white hover:bg-gray-600">Profile</a>
 
                   <form action="{{route('logout')}}" method="POST">
                       @csrf
-                      <button type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</button>
+                      <button type="submit" class="w-full px-4 py-2 text-sm text-white hover:bg-gray-600">Logout</button>
                   </form>
               </div>
           </li>

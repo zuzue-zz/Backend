@@ -53,7 +53,6 @@ class MovieController extends Controller
             'description' => $request->description,
             'duration' => $request->duration,
             'rating' => $request->rating,
-            'review' => $request->review,
             'trailer_link' => $request->trailer_link,
             'release_date' => $request->release_date,
             'featured' => $request->featured==1?true:false,
