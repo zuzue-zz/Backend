@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Landing;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Movie;
 use App\Models\Showtime;
 use Illuminate\Http\Request;
@@ -17,15 +18,19 @@ class HomeController extends Controller
     {
         // Retrieve showtimes with movies that are showing today
         $showNowMovies = Showtime::with('movie') // Eager load the related movies
-        ->where('show_date', Date::now()->format('Y-m-d')) // Ensure date format matches your database
+        ->where('show_date',Date::now()->format('Y-m-d')) // Ensure date format matches your database
         ->paginate(8);
 
         // Retrieve popular movies ordered by rating in descending order
         $popularMovies = Movie::orderBy('rating', 'desc')->paginate(8);
 
-        $featuredMovies = Movie::where('featured', 1)->orderBy('rating', 'desc')->paginate(8);
+        $featuredMovies = Movie::where('featured', 'true')->orderBy('rating', 'desc')->paginate(8);
 
-        return view('landing.home',compact('showNowMovies','popularMovies','featuredMovies'));
+        $category = Category::where('name','Animation')->first();
+
+        $animationMovies = $category ?  Movie::where('category_id',$category->id)->orderBy('rating', 'desc')->paginate(8) : null;
+
+        return view('landing.home',compact('showNowMovies','popularMovies','featuredMovies','animationMovies'));
     }
 
     /**
