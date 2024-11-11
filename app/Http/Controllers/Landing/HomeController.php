@@ -16,9 +16,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // Retrieve showtimes with movies that are showing today
         $showNowMovies = Showtime::with('movie') // Eager load the related movies
-        ->where('show_date',Date::now()->format('Y-m-d')) // Ensure date format matches your database
+        ->where('show_date', '>=', now()->format('Y-m-d')) // Filter show_date to today or later
         ->paginate(8);
 
         // Retrieve popular movies ordered by rating in descending order
